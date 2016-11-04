@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="https://lodash.com/favicon.ico">
+
+    <title>Короче_</title>
+
+    <meta name="description" content="Семантичный код на JavaScript с использованием lodash">
+    <meta name="author" content="Сергей Жигалов">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/white.css">
+    <link rel="stylesheet" href="css/user.css">
+
+	<link rel="stylesheet" href="css/tomorrow.css">
+</head>
+<body>
+<div class="reveal"><div class="slides">
+
+<section>
+    <h1>Короче_</h1>
+</section>
+
+<section>
+    <h2>Список</h2>
+
+    <ul>
+        <li>Раз раз раз</li>
+        <li>Раз раз раз</li>
+        <li>Раз раз раз</li>
+        <li>Раз раз раз</li>
+    </ul>
+</section>
+
+
+<section>
+    <h3>Кодэ</h3>
+
+    <pre class="js"><code data-trim>
+for (var i = 0; i < 10; i++) {
+    console.log(i + 'some string');
+}
+    </code></pre>
+
+    <pre class="js"><code data-trim>
+var a = 1;
+    </code></pre>
+
+    <pre class="js"><code data-trim>
+global.process.environment = 'qwertyuiop';
+    </code></pre>
+</section>
+
+</div></div>
+
+<script src="js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+<script>
+    Reveal.initialize({
+        controls: false,
+        slideNumber: true,
+        history: true,
+        dependencies: [
+            {
+                src: 'js/highlight.js',
+                async: true,
+                condition: function () {
+                    return Boolean(document.querySelector('pre code'));
+                },
+                callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            }
+        ]
+    });
+</script>
+
+</body>
+</html>
