@@ -21,3 +21,7 @@ pre,
     color: black;
     padding: 7px;
 }
+
+.reveal .columns {
+    display: flex;
+}

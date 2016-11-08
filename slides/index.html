@@ -24,34 +24,377 @@
 </section>
 
 <section>
-    <h2>Список</h2>
+    <section>
+        <pre class="js"><code data-trim>
+_.defaultTo
+        </code></pre>
+    </section>
 
-    <ul>
-        <li>Раз раз раз</li>
-        <li>Раз раз раз</li>
-        <li>Раз раз раз</li>
-        <li>Раз раз раз</li>
-    </ul>
+    <section>
+        <pre class="js"><code data-trim>
+function getCost(price, count) {
+    if (count === undefined) {
+        count = 1;
+    }
+
+    return price * count;
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <pre class="js"><code data-trim>
+function getCost(price, count) {
+    count = _.defaultTo(count, 1);
+
+    return price * count;
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h3>eslint</h3>
+
+        <pre class="js"><code data-trim>
+_.defaultTo(count, 1);
+// complexity 0
+        </code></pre>
+
+        <pre class="js fragment"><code data-trim>
+count = count || 0;
+// complexity 1
+        </code></pre>
+    </section>
 </section>
-
 
 <section>
-    <h3>Кодэ</h3>
+    <section>
+        <pre class="js"><code data-trim>
+_.get
+        </code></pre>
+    </section>
 
-    <pre class="js"><code data-trim>
-for (var i = 0; i < 10; i++) {
-    console.log(i + 'some string');
+    <section>
+        <pre class="js"><code data-trim>
+var data = {
+    person: {
+        name: 'Mike',
+        avatar: {
+            url: 'path/to/img'
+        }
+    }
 }
-    </code></pre>
+        </code></pre>
 
-    <pre class="js"><code data-trim>
-var a = 1;
-    </code></pre>
+        <pre class="js fragment"><code data-trim>
+var avatarUrl = data &&
+    data.person &&
+    data.person.avatar &&
+    data.person.avatar.url ||
+    'default/path'
+        </code></pre>
+    </section>
 
-    <pre class="js"><code data-trim>
-global.process.environment = 'qwertyuiop';
-    </code></pre>
+    <section>
+        <pre class="js"><code data-trim>
+var data = {
+    person: {
+        name: 'Mike',
+        avatar: {
+            url: 'path/to/img'
+        }
+    }
+}
+        </code></pre>
+
+        <pre class="js fragment"><code data-trim>
+var avatarUrl = _.get(data,
+    'person.avatar.url',
+    'default/path');
+        </code></pre>
+    </section>
+
+    <section>
+        <pre class="js"><code data-trim>
+var data = {
+    person: {
+        name: 'Sergey',
+        friends: [
+            { name: 'Anna' },
+            { name: 'Mike' }
+        ]
+    }
+}
+        </code></pre>
+
+        <pre class="js fragment"><code data-trim>
+var avatarUrl = _.get(data,
+    'person.friends.1.name');
+        </code></pre>
+    </section>
+
+    <section>
+        <pre class="js"><code data-trim>
+var data = {
+    person: {
+        name: 'Sergey',
+        friends: [
+            { name: 'Anna' },
+            { name: 'Mike' }
+        ]
+    }
+}
+        </code></pre>
+
+        <pre class="js fragment"><code data-trim>
+var bestFriend = 1;
+var avatarUrl = _.get(data,
+    ['person', 'friends', bestFriend, 'name']);
+        </code></pre>
+    </section>
 </section>
+
+<section>
+    <section>
+        <pre class="js"><code data-trim>
+_.set
+        </code></pre>
+    </section>
+
+    <section>
+        <pre class="js"><code data-trim>
+var data = {
+    person: {
+        name: 'Anna'
+    }
+}
+        </code></pre>
+
+        <pre class="js"><code data-trim>
+_.set(data, 'person.avatar.hasImage', false);
+        </code></pre>
+    </section>
+</section>
+
+<section>
+    <section>
+        <pre class="js"><code data-trim>
+_.assign
+        </code></pre>
+    </section>
+
+    <section>
+        <pre class="js"><code data-trim>
+var person = {
+    name: 'Mike',
+    favorite: 'cake'
+};
+        </code></pre>
+
+        <pre class="js fragment"><code data-trim>
+var update = {
+    favorite: 'shaurma',
+    age: 24
+};
+        </code></pre>
+
+        <pre class="js fragment"><code data-trim>
+{
+    name: 'Mike',
+    favorite: 'shaurma',
+    age: 24
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <pre class="js"><code data-trim>
+Object
+    .keys(update)
+    .forEach(function (key) {
+        person[key] = update[key];
+    });
+        </code></pre>
+    </section>
+
+    <section>
+        <pre class="js"><code data-trim>
+_.assign(person, update);
+        </code></pre>
+
+        <pre class="js fragment"><code data-trim>
+_.assign({}, person, update);
+        </code></pre>
+    </section>
+
+    <section>
+        <pre class="js"><code data-trim>
+Object.assign(person, update);
+        </code></pre>
+    </section>
+</section>
+
+<section>
+    <section>
+        <pre class="js"><code data-trim>
+_.merge
+        </code></pre>
+    </section>
+
+    <section>
+        <div class="columns">
+        <pre class="js"><code data-trim>
+var person = {
+    name: 'Mike',
+    favorite: {
+        dish: 'cake',
+        game: {
+            name: 'FIFA',
+            year: 2016
+        }
+    }
+};
+        </code></pre>
+
+        <pre class="js fragment"><code data-trim>
+var update = {
+    favorite: {
+        dish: 'shaurma',
+        game: {
+            year: 2017
+        }
+    },
+    age: 24
+};
+        </code></pre>
+        </div>
+    </section>
+
+    <section>
+        <pre class="js"><code data-trim>
+{
+    name: 'Mike',
+    favorite: {
+        dish: 'shaurma',
+        game: {
+            name: 'FIFA',
+            year: 2017
+        }
+    },
+    age: 24
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <pre class="js"><code data-trim>
+_.merge(person, update);
+        </code></pre>
+    </section>
+</section>
+
+<section>
+    <section>
+        <pre class="js"><code data-trim>
+_.pick
+        </code></pre>
+    </section>
+
+    <section>
+        <pre class="js"><code data-trim>
+var person = {
+    name: 'Mike',
+    age: 24,
+    favorite: 'cake',
+    phone: 'Nexus 5',
+    size: 'M'
+};
+        </code></pre>
+
+        <pre class="js"><code data-trim>
+var person = {
+    name: 'Mike',
+    size: 'M'
+};
+        </code></pre>
+    </section>
+
+    <section>
+        <pre class="js"><code data-trim>
+['name', 'size']
+    .reduce(function (result, key) {
+        result[key] = person[key];
+
+        return result;
+    }, {})
+        </code></pre>
+    </section>
+
+    <section>
+        <pre class="js"><code data-trim>
+_.pick(person, ['name', 'size']);
+        </code></pre>
+    </section>
+</section>
+
+<section>
+    <section>
+        <pre class="js"><code data-trim>
+_.sumBy
+        </code></pre>
+    </section>
+
+    <section>
+        <pre class="js"><code data-trim>
+var friends = [
+    {
+        name: 'Mike',
+        unreadMessages: 2
+    },
+    {
+        name: 'Anna',
+        unreadMessages: 1
+    }
+]
+        </code></pre>
+    </section>
+
+    <section>
+        <pre class="js"><code data-trim>
+friends
+    .reduce(function (sum, friend) {
+        return sum + friend.unreadMessages;
+    }, 0);
+        </code></pre>
+    </section>
+
+    <section>
+        <pre class="js"><code data-trim>
+_.sumBy(friends, 'unreadMessages');
+        </code></pre>
+    </section>
+</section>
+
+<section>
+    // TODO: чейнинг + методы над массивом (sampleSize, difference, union, uniq)
+</section>
+
+<section>
+    // TODO: isNumber, isString, isArray, isObject
+</section>
+
+<section>
+    // TODO: cloneDeep + производительность
+</section>
+
+<section>
+    // TODO: uniqueId
+</section>
+
+<section>
+    // TODO: chain thru
+</section>
+
 
 </div></div>
 
