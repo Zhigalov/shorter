@@ -1,3 +1,16 @@
+.reveal .author {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.reveal .author::first-letter {
+    color: red;
+}
+
+.reveal section img {
+    border: none;
+    box-shadow: none;
+}
 
 @font-face {
     font-family: sourcecodepro-light;
@@ -10,8 +23,12 @@ pre,
 .reveal pre code {
     font-family: 'sourcecodepro-light', textbook, Arial;
     max-height: none;
-    font-size: 1.2em;
-    line-height: 1.5em;
+    font-size: 1.5em;
+    line-height: 1.6em;
+}
+
+.reveal pre {
+    box-shadow: none;
 }
 
 .reveal .slide-number {
@@ -26,7 +43,18 @@ pre,
     display: flex;
 }
 
-reveal pre code.size-XS {
-    font-size: 0.7em;
-    line-height: 0.8em;
+.reveal pre.size-L code {
+    font-size: 5em;
+    line-height: 6em;
+}
+
+
+.reveal pre.size-XS code {
+    font-size: 1.3em;
+    line-height: 1.4em;
+}
+
+.reveal pre.size-XXXS code {
+    font-size: 0.5em;
+    line-height: 0.9em;
 }
