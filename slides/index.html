@@ -376,11 +376,194 @@ _.sumBy(friends, 'unreadMessages');
 </section>
 
 <section>
-    // TODO: чейнинг + методы над массивом (sampleSize, difference, union, uniq)
+    <section>
+        <pre class="js"><code data-trim>
+_.forEach
+        </code></pre>
+    </section>
+
+    <section>
+        <pre class="js"><code data-trim>
+var friends = [
+    { name: 'Mike', hasPS: true },
+    { name: 'Anna', hasPS: false },
+    { name: 'Ilia', hasPS: true }
+];
+        </code></pre>
+    </section>
+
+    <section>
+        <pre class="js"><code data-trim>
+var gameTo;
+
+for(var i = 0; i < friends.length; i++) {
+    if (friends[i].hasPS) {
+        gameTo = friends[i].name;
+        break;
+    }
+}
+
+gameTo; // Mike
+        </code></pre>
+    </section>
+
+    <section>
+        <pre class="js"><code data-trim>
+var gameTo;
+
+_.forEach(friends, function (friend) {
+    if (friend.hasPS) {
+        gameTo = friend.name;
+        return false;
+    }
+});
+
+gameTo; // Mike
+        </code></pre>
+    </section>
+
+    <section>
+        <pre class="js"><code data-trim>
+var friends = [
+    { name: 'Mike', hasPS: true },
+    { name: 'Anna', hasPS: false },
+    { name: 'Oleg', hasPS: true },
+    { name: 'Ilia', hasPS: true }
+];
+
+var colleagues = [
+    { name: 'Mike', hasPS: true },
+    { name: 'Anna', hasPS: false },
+    { name: 'Oleg', hasPS: true },
+    { name: 'Den', hasPS: true }
+];
+        </code></pre>
+    </section>
+
+    <section>
+        <pre class="js"><code data-trim>
+var paty = [];
+
+friends.forEach(function (friend) {
+    var isCollegue = colleagues.some(function (collegue) {
+        return friend.name === collegue.name;
+    });
+
+    if (friend.hasPS && isCollegue) {
+        paty.push(friend.name);
+    }
+});
+
+paty; // ['Mike', 'Oleg']
+        </code></pre>
+    </section>
+
+    <section>
+        <pre class="js"><code data-trim>
+_(friends)
+    .intersectionBy(colleagues, 'name')
+    .filter('hasPS')
+    .map('name')
+    .value(); // ['Mike', 'Oleg']
+        </code></pre>
+    </section>
+
+
+    <section>
+        <pre class="js"><code data-trim>
+_(friends)
+    .intersectionBy(colleagues, 'name')
+    .filter('hasPS')
+    .map('name')
+    .sapleSize(1)
+    .value(); // ['Mike']
+        </code></pre>
+    </section>
+
+    <section>
+        <pre class="js"><code data-trim>
+var question = 'Какой поэт не писал ' +
+    'стихотворение "Пророк"';
+
+var answers = [
+    'Пушкин',
+    'Некрасов',
+    'Лермонтов',
+    'Тютчев'
+];
+        </code></pre>
+    </section>
+
+    <section>
+        <pre class="js"><code data-trim>
+var question = 'Какой поэт не писал ' +
+    'стихотворение "Пророк"';
+
+var answers = [
+    'Пушкин',
+    'Некрасов',
+    'Лермонтов',
+    'Тютчев'
+];
+        </code></pre>
+    </section>
+
+    <section data-background='images/shuffle.jpg'>
+    </section>
+
+    <section>
+        <pre class="js"><code data-trim>
+var answers = _.shuffle([
+    'Пушкин',
+    'Некрасов',
+    'Лермонтов',
+    'Тютчев'
+]);
+        </code></pre>
+    </section>
 </section>
 
 <section>
-    // TODO: isNumber, isString, isArray, isObject
+    <section>
+        <pre class="js"><code data-trim>
+_.isString
+        </code></pre>
+    </section>
+
+    <section>
+        <pre class="js"><code data-trim>
+var person = {
+    name: 'Mike'
+}
+        </code></pre>
+
+        <pre class="js fragment"><code data-trim>
+typeof person.name === 'string' ||
+person.name instanceof String
+        </code></pre>
+
+        <pre class="js fragment"><code data-trim>
+_.isString(person.name)
+        </code></pre>
+    </section>
+
+    <section>
+        <pre class="js size-XS"><code data-trim>
+_.isArguments       _.isArray           _.isArrayBuffer
+_.isArrayLike       _.isArrayLikeObject _.isBoolean
+_.isBuffer          _.isDate            _.isElement
+_.isEmpty           _.isEqual           _.isEqualWith
+_.isError           _.isFinite          _.isFunction
+_.isInteger         _.isLength          _.isMap
+_.isMatch           _.isMatchWith       _.isNaN
+_.isNative          _.isNil             _.isNull
+_.isNumber          _.isObject          _.isObjectLike
+_.isPlainObject     _.isRegExp          _.isSafeInteger
+_.isSet             _.isString          _.isSymbol
+_.isTypedArray      _.isUndefined       _.isWeakMap
+_.isWeakSet
+        </code></pre>
+    </section>
 </section>
 
 <section>

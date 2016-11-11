@@ -25,3 +25,8 @@ pre,
 .reveal .columns {
     display: flex;
 }
+
+reveal pre code.size-XS {
+    font-size: 0.7em;
+    line-height: 0.8em;
+}
