@@ -567,7 +567,36 @@ _.isWeakSet
 </section>
 
 <section>
-    // TODO: cloneDeep + производительность
+    <section>
+        <pre class="js"><code data-trim>
+_.cloneDeep
+        </code></pre>
+    </section>
+
+    <section>
+        <pre class="js"><code data-trim>
+var person = {
+    name: 'Mike',
+    favorite: {
+        dish: 'cake',
+        game: {
+            name: 'FIFA',
+            year: 2016
+        }
+    }
+};
+        </code></pre>
+    </section>
+
+    <section>
+        <pre class="js"><code data-trim>
+var copy = JSON.parse(JSON.stringify(person));
+        </code></pre>
+
+        <pre class="js fragment"><code data-trim>
+var copy = _.cloneDeep(person);
+        </code></pre>
+    </section>
 </section>
 
 <section>
