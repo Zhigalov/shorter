@@ -55,6 +55,11 @@ pre,
     line-height: 1.4em;
 }
 
+.reveal pre.size-XXS code {
+    font-size: 1.1em;
+    line-height: 1.1em;
+}
+
 .reveal pre.size-XXXS code {
     font-size: 0.5em;
     line-height: 0.9em;

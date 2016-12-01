@@ -795,20 +795,21 @@ var colleagues = [
     </section>
 
     <section>
-        <pre class="js"><code data-trim>
-var paty = [];
+        <pre class="js size-XS"><code data-trim>
+var party = [];
 
 friends.forEach(function (friend) {
-    var isCollegue = colleagues.some(function (collegue) {
-        return friend.name === collegue.name;
-    });
+    var isCollegue = colleagues
+        .some(function (collegue) {
+            return friend.name === collegue.name;
+        });
 
     if (friend.hasPS && isCollegue) {
-        paty.push(friend.name);
+        party.push(friend.name);
     }
 });
 
-paty; // ['Mike', 'Oleg']
+party; // ['Mike', 'Oleg']
         </code></pre>
     </section>
 
@@ -829,7 +830,7 @@ _(friends)
     .intersectionBy(colleagues, 'name')
     .filter('hasPS')
     .map('name')
-    .sapleSize(1)
+    .sampleSize(1)
     .value(); // ['Mike']
         </code></pre>
     </section>
@@ -960,7 +961,7 @@ slug = slug.replace(/\s+/g, '-');
     </section>
 
     <section>
-        <pre class="js"><code data-trim>
+        <pre class="js size-XS"><code data-trim>
 _.chain('  Поговорим о здоровье! ')
     .thru(_.toLower)
     .thru(_.deburr)
